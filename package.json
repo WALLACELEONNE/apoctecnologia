@@ -1,0 +1,28 @@
+{
+  "name": "apoc-tecnologia-landing",
+  "version": "1.0.0",
+  "description": "Landing page moderna da APOC Tecnologia com glassmorphism e design ultra moderno",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Static site - no build needed'",
+    "dev": "serve ."
+  },
+  "keywords": [
+    "landing-page",
+    "apoc-tecnologia",
+    "glassmorphism",
+    "modern-design",
+    "consultoria-ti"
+  ],
+  "author": "APOC Tecnologia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apoctecnologia/landing-page.git"
+  },
+  "homepage": "https://apoctecnologia.vercel.app",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
