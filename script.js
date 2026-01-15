@@ -1,17 +1,17 @@
 // DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Navigation functionality
     initNavigation();
-    
+
     // Scroll animations
     initScrollAnimations();
-    
+
     // Form handling
     initFormHandling();
-    
+
     // Smooth scrolling for anchor links
     initSmoothScrolling();
-    
+
     // Navbar scroll effect
     initNavbarScrollEffect();
 });
@@ -73,17 +73,17 @@ function initScrollAnimations() {
 // Smooth scrolling for anchor links
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             const targetId = link.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
-                
+
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -100,7 +100,7 @@ function initNavbarScrollEffect() {
 
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        
+
         if (currentScrollY > 100) {
             // Fundo escuro com maior opacidade ao rolar - mantém consistência com o design
             navbar.style.background = 'rgba(15, 23, 42, 0.95)';
@@ -112,7 +112,7 @@ function initNavbarScrollEffect() {
             navbar.style.boxShadow = 'none';
             navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
         }
-        
+
         lastScrollY = currentScrollY;
     });
 }
@@ -120,7 +120,7 @@ function initNavbarScrollEffect() {
 // Form handling
 function initFormHandling() {
     const contactForm = document.querySelector('.contact-form');
-    
+
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
     }
@@ -128,11 +128,11 @@ function initFormHandling() {
 
 async function handleFormSubmit(e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const formData = new FormData(form);
     const submitButton = form.querySelector('button[type="submit"]');
-    
+
     // Get form data
     const data = {
         name: formData.get('name'),
@@ -141,28 +141,42 @@ async function handleFormSubmit(e) {
         service: formData.get('service'),
         message: formData.get('message')
     };
-    
+
     // Validate form
     if (!validateForm(data)) {
         return;
     }
-    
+
     // Show loading state
     const originalText = submitButton.textContent;
     submitButton.textContent = 'Enviando...';
     submitButton.disabled = true;
     submitButton.classList.add('loading');
-    
+
     try {
-        // Simulate form submission (replace with actual API call)
-        await simulateFormSubmission(data);
-        
-        // Show success message
-        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-        
-        // Reset form
-        form.reset();
-        
+        // Envio real via Fetch API (Formspree ou similar)
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            // Sucesso
+            showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+            form.reset();
+        } else {
+            // Erro do servidor
+            const data = await response.json();
+            if (Object.hasOwn(data, 'errors')) {
+                throw new Error(data["errors"].map(error => error["message"]).join(", "));
+            } else {
+                throw new Error('Erro ao enviar mensagem.');
+            }
+        }
+
     } catch (error) {
         // Show error message
         showNotification('Erro ao enviar mensagem. Tente novamente.', 'error');
@@ -177,28 +191,28 @@ async function handleFormSubmit(e) {
 
 function validateForm(data) {
     const errors = [];
-    
+
     if (!data.name || data.name.trim().length < 2) {
         errors.push('Nome deve ter pelo menos 2 caracteres');
     }
-    
+
     if (!data.email || !isValidEmail(data.email)) {
         errors.push('E-mail inválido');
     }
-    
+
     if (!data.service) {
         errors.push('Selecione um serviço');
     }
-    
+
     if (!data.message || data.message.trim().length < 10) {
         errors.push('Mensagem deve ter pelo menos 10 caracteres');
     }
-    
+
     if (errors.length > 0) {
         showNotification(errors.join('\n'), 'error');
         return false;
     }
-    
+
     return true;
 }
 
@@ -225,7 +239,7 @@ function showNotification(message, type = 'info') {
     // Remove existing notifications
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => notification.remove());
-    
+
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -235,7 +249,7 @@ function showNotification(message, type = 'info') {
             <button class="notification-close">&times;</button>
         </div>
     `;
-    
+
     // Add styles
     notification.style.cssText = `
         position: fixed;
@@ -251,21 +265,21 @@ function showNotification(message, type = 'info') {
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
     `;
-    
+
     // Add to DOM
     document.body.appendChild(notification);
-    
+
     // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Close button functionality
     const closeButton = notification.querySelector('.notification-close');
     closeButton.addEventListener('click', () => {
         closeNotification(notification);
     });
-    
+
     // Auto close after 5 seconds
     setTimeout(() => {
         closeNotification(notification);
@@ -296,7 +310,7 @@ function debounce(func, wait) {
 
 function throttle(func, limit) {
     let inThrottle;
-    return function() {
+    return function () {
         const args = arguments;
         const context = this;
         if (!inThrottle) {
@@ -318,7 +332,7 @@ window.addEventListener('resize', debouncedResize);
 // Lazy loading for images (if any are added later)
 function initLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -329,7 +343,7 @@ function initLazyLoading() {
             }
         });
     });
-    
+
     images.forEach(img => imageObserver.observe(img));
 }
 
@@ -353,7 +367,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         const navMenu = document.getElementById('nav-menu');
         const navToggle = document.getElementById('nav-toggle');
-        
+
         if (navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
@@ -380,15 +394,15 @@ function initAccessibility() {
         z-index: 10001;
         transition: top 0.3s;
     `;
-    
+
     skipLink.addEventListener('focus', () => {
         skipLink.style.top = '6px';
     });
-    
+
     skipLink.addEventListener('blur', () => {
         skipLink.style.top = '-40px';
     });
-    
+
     document.body.insertBefore(skipLink, document.body.firstChild);
 }
 
