@@ -1179,17 +1179,21 @@ body {
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
-        top: 100%;
+        top: 0; /* Ajustado para cobrir a tela inteira se necessário, ou manter abaixo do header */
+        top: 80px; /* Assumindo altura aproximada do header */
         left: 0;
         right: 0;
-        background: var(--bg-white);
+        background: var(--bg-glass-dark);
+        backdrop-filter: var(--glass-backdrop);
+        border-bottom: 1px solid var(--glass-border);
         flex-direction: column;
         padding: var(--spacing-xl);
         box-shadow: var(--shadow-lg);
-        transform: translateY(-100%);
+        transform: translateY(-150%);
         opacity: 0;
         visibility: hidden;
         transition: var(--transition-normal);
+        z-index: 999;
     }
     
     .nav-menu.active {
