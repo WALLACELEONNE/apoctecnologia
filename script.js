@@ -154,8 +154,14 @@ async function handleFormSubmit(e) {
     submitButton.classList.add('loading');
 
     try {
-        // Envio real via Fetch API (Formspree ou similar)
-        const response = await fetch(form.action, {
+        // Envio real via Fetch API (FormSubmit)
+        // Lógica de roteamento dinâmico baseada no serviço selecionado
+        let formAction = form.action;
+        if (data.service === 'support') {
+            formAction = "https://formsubmit.co/suporte@apoctecnologia.com.br";
+        }
+
+        const response = await fetch(formAction, {
             method: form.method,
             body: formData,
             headers: {
