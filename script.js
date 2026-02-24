@@ -245,10 +245,11 @@ function showNotification(message, type = 'info') {
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
         <div class="notification-content">
-            <span class="notification-message">${message}</span>
+            <span class="notification-message"></span>
             <button class="notification-close">&times;</button>
         </div>
     `;
+    notification.querySelector('.notification-message').textContent = message;
 
     // Add styles
     notification.style.cssText = `

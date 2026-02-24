@@ -19,18 +19,23 @@
         <nav class="navbar">
             <div class="container">
                 <div class="nav-brand">
-                    <svg class="logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="logo" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
                         <!-- Logo APOC -->
-                        <text x="10" y="45" class="logo-text">APOC</text>
-                        <text x="10" y="65" class="logo-subtext">TECNOLOGIA</text>
-                        <!-- Elementos de circuito -->
-                        <g class="circuit-elements">
-                            <circle cx="160" cy="20" r="6" class="circuit-node" />
-                            <circle cx="180" cy="15" r="4" class="circuit-node" />
-                            <circle cx="170" cy="35" r="5" class="circuit-node" />
-                            <path d="M160 26 L160 35 L170 35" class="circuit-line" />
-                            <path d="M166 20 L180 15" class="circuit-line" />
-                            <path d="M160 14 L160 20" class="circuit-line" />
+                        <text x="0" y="45" class="logo-text">APOC</text>
+                        <text x="0" y="70" class="logo-subtext">TECNOLOGIA</text>
+                        <!-- Ramificações de circuito saindo do C -->
+                        <g class="circuit-elements" transform="translate(100, 15)">
+                            <!-- Tronco principal -->
+                            <path d="M0 30 L0 10" class="circuit-line" />
+                            <!-- Ramificação 1 -->
+                            <path d="M0 15 L15 0" class="circuit-line" />
+                            <circle cx="15" cy="0" r="4" class="circuit-node" />
+                            <!-- Ramificação 2 -->
+                            <path d="M0 10 L-10 -10" class="circuit-line" />
+                            <circle cx="-10" cy="-10" r="3" class="circuit-node" />
+                            <!-- Ramificação 3 -->
+                            <path d="M0 5 L25 -5" class="circuit-line" />
+                            <circle cx="25" cy="-5" r="3.5" class="circuit-node" />
                         </g>
                     </svg>
                 </div>
@@ -59,26 +64,26 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">
-                            <span class="gradient-text">Inovação Digital</span><br>
-                            Transformamos <span class="highlight">Tecnologia</span><br>
-                            em <span class="highlight">Resultados</span>
+                            Soluções <span class="gradient-text">Tecnológicas</span><br>
+                            Estratégicas para sua <span class="highlight">Empresa</span>
                         </h1>
                         <p class="hero-description">
-                            Consultoria especializada em Tecnologia da Informação para impulsionar sua empresa rumo à
-                            transformação digital
+                            Somos uma consultoria especializada em transformar desafios digitais em oportunidades.
+                            Combinamos estratégia, tecnologia e inovação — incluindo o uso de Inteligência Artificial —
+                            para criar soluções que geram valor real e aceleram o crescimento do seu negócio.
                         </p>
                         <div class="hero-stats">
                             <div class="stat">
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">Anos de Experiência</span>
+                                <span class="stat-number"><i class="fas fa-lightbulb"></i></span>
+                                <span class="stat-label">Inovação</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">20+</span>
-                                <span class="stat-label">Projetos Entregues</span>
+                                <span class="stat-number"><i class="fas fa-chart-line"></i></span>
+                                <span class="stat-label">Estratégia</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">98%</span>
-                                <span class="stat-label">Satisfação</span>
+                                <span class="stat-number"><i class="fas fa-shield-alt"></i></span>
+                                <span class="stat-label">Segurança</span>
                             </div>
                         </div>
                         <div class="hero-buttons">
@@ -107,62 +112,58 @@
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Nossos Serviços</h2>
-                    <p class="section-subtitle">Soluções Completas em Tecnologia</p>
-                    <p class="section-description">Oferecemos um portfólio abrangente de serviços para atender todas as
-                        necessidades tecnológicas da sua empresa</p>
+                    <p class="section-subtitle">Expertise Multidisciplinar para Resultados Extraordinários</p>
+                    <p class="section-description">Entregamos soluções tecnológicas completas, integrando o que há de
+                        mais moderno em infraestrutura, desenvolvimento e inteligência aplicada.</p>
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3 class="service-title">Cloud Computing</h3>
-                        <p class="service-description">Migração e gestão de infraestrutura em nuvem com as principais
-                            plataformas do mercado.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3 class="service-title">Desenvolvimento de Software</h3>
-                        <p class="service-description">Soluções personalizadas com as tecnologias mais modernas e
-                            escaláveis
-                            do mercado.</p>
+                        <h3 class="service-title">Desenvolvimento Sob Medida</h3>
+                        <p class="service-description">Criação de softwares, apps e sistemas escaláveis com as melhores
+                            tecnologias do mercado, focados na experiência do usuário e performance.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-chart-bar"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="service-title">Gestão de Dados</h3>
-                        <p class="service-description">Analytics, Business Intelligence e Big Data para decisões
-                            baseadas em
-                            dados.</p>
+                        <h3 class="service-title">Dados & Analytics</h3>
+                        <p class="service-description">Transformamos volumes de dados em insights estratégicos,
+                            utilizando ferramentas de BI e análise avançada para apoiar sua tomada de decisão.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="service-title">Infraestrutura Cloud</h3>
+                        <p class="service-description">Migração, otimização e gestão de recursos em nuvem, garantindo
+                            segurança, escalabilidade e redução de custos operacionais.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h3 class="service-title">Segurança da Informação</h3>
-                        <p class="service-description">Proteção completa dos seus ativos digitais com as melhores
-                            práticas
-                            de segurança.</p>
+                        <p class="service-description">Proteção de ativos digitais e conformidade com regulamentações
+                            (LGPD), assegurando a continuidade e integridade do seu negócio.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-rocket"></i>
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <h3 class="service-title">Transformação Digital</h3>
-                        <p class="service-description">Modernização de processos e implementação de tecnologias
-                            disruptivas.
-                        </p>
+                        <h3 class="service-title">Inteligência Artificial</h3>
+                        <p class="service-description">Implementação estratégica de IA para automação de processos,
+                            análise preditiva e assistentes inteligentes que potencializam sua equipe.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3 class="service-title">Automação de Processos</h3>
-                        <p class="service-description">Otimização e automação inteligente para aumentar produtividade.
-                        </p>
+                        <h3 class="service-title">Consultoria Estratégica</h3>
+                        <p class="service-description">Alinhamento entre tecnologia e metas de negócio, definindo
+                            roadmap tecnológico e arquitetura de sistemas para máxima eficiência.</p>
                     </div>
                 </div>
             </div>
@@ -174,23 +175,21 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h2 class="section-title">Sobre Nós</h2>
-                        <h3 class="about-subtitle">Transformando Empresas Através da Tecnologia</h3>
+                        <h3 class="about-subtitle">Tecnologia Estratégica a Serviço do Seu Negócio</h3>
                         <p class="about-description">
-                            A APOC Tecnologia é uma consultoria especializada em Tecnologia da Informação, comprometida
-                            em
-                            entregar soluções inovadoras que impulsionam o crescimento e a eficiência dos nossos
-                            clientes.
+                            A APOC Tecnologia nasceu para simplificar a jornada digital das empresas.
+                            Somos uma consultoria que entende que a tecnologia deve ser um meio para atingir resultados
+                            extraordinários, não um fim em si mesma.
                         </p>
                         <p class="about-description">
-                            Com uma equipe altamente qualificada e vasta experiência em projetos de diversos portes e
-                            segmentos, oferecemos consultoria estratégica e implementação de soluções tecnológicas que
-                            geram
-                            valor real para o negócio.
+                            Nossa equipe é formada por especialistas experientes em arquitetura, desenvolvimento e
+                            estratégia digital,
+                            capazes de integrar soluções inovadoras como Inteligência Artificial às bases sólidas de
+                            engenharia de software e segurança.
                         </p>
                         <p class="about-description">
-                            Nossa abordagem combina expertise técnica com visão de negócio, garantindo que cada projeto
-                            seja
-                            alinhado aos objetivos estratégicos da empresa.
+                            Trabalhamos com transparência e parceria, construindo soluções personalizadas que
+                            elevam a eficiência operacional e criam vantagens competitivas reais para nossos clientes.
                         </p>
                     </div>
                     <div class="about-features">
@@ -283,14 +282,16 @@
                             patamares
                         </p>
                         <div class="contact-methods">
-                            <div class="contact-method">
+                            <a href="mailto:contato@apoctecnologia.com"
+                                class="contact-method contact-method--clickable">
                                 <i class="fas fa-envelope"></i>
                                 <span>contato@apoctecnologia.com</span>
-                            </div>
-                            <div class="contact-method">
-                                <i class="fas fa-phone"></i>
+                            </a>
+                            <a href="https://wa.me/5591989094937" target="_blank" rel="noopener noreferrer"
+                                class="contact-method contact-method--clickable">
+                                <i class="fab fa-whatsapp"></i>
                                 <span>+55 (91) 98909-4937</span>
-                            </div>
+                            </a>
                             <div class="contact-method">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span>Paragominas, PA - Brasil</span>
@@ -298,7 +299,12 @@
                         </div>
                     </div>
                     <div class="contact-form-container">
-                        <form class="contact-form" action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
+                        <form class="contact-form" action="https://formsubmit.co/contato@apoctecnologia.com"
+                            method="POST">
+                            <!-- Configurações do FormSubmit -->
+                            <input type="hidden" name="_next" value="https://apoctecnologia.com/obrigado.html">
+                            <input type="hidden" name="_subject" value="Novo Contato - Site APOC Tecnologia">
+                            <input type="hidden" name="_captcha" value="false">
                             <h4>Fale Conosco</h4>
                             <p>Nossa equipe está pronta para atender você e apresentar as melhores soluções tecnológicas
                                 para o seu negócio.</p>
@@ -318,12 +324,12 @@
                                 <label for="service" class="sr-only">Serviço de interesse</label>
                                 <select id="service" name="service" required>
                                     <option value="">Selecione um serviço</option>
-                                    <option value="cloud">Cloud Computing</option>
-                                    <option value="development">Desenvolvimento de Software</option>
-                                    <option value="data">Gestão de Dados</option>
+                                    <option value="software">Desenvolvimento Sob Medida</option>
+                                    <option value="data">Dados & Analytics</option>
+                                    <option value="cloud">Infraestrutura Cloud</option>
                                     <option value="security">Segurança da Informação</option>
-                                    <option value="digital">Transformação Digital</option>
-                                    <option value="automation">Automação de Processos</option>
+                                    <option value="ai">Inteligência Artificial</option>
+                                    <option value="consulting">Consultoria Estratégica</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -345,16 +351,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <svg class="logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                        <text x="10" y="45" class="logo-text">APOC</text>
-                        <text x="10" y="65" class="logo-subtext">TECNOLOGIA</text>
-                        <g class="circuit-elements">
-                            <circle cx="160" cy="20" r="6" class="circuit-node" />
-                            <circle cx="180" cy="15" r="4" class="circuit-node" />
-                            <circle cx="170" cy="35" r="5" class="circuit-node" />
-                            <path d="M160 26 L160 35 L170 35" class="circuit-line" />
-                            <path d="M166 20 L180 15" class="circuit-line" />
-                            <path d="M160 14 L160 20" class="circuit-line" />
+                    <svg class="logo" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+                        <text x="0" y="45" class="logo-text">APOC</text>
+                        <text x="0" y="70" class="logo-subtext">TECNOLOGIA</text>
+                        <g class="circuit-elements" transform="translate(100, 15)">
+                            <path d="M0 30 L0 10" class="circuit-line" />
+                            <path d="M0 15 L15 0" class="circuit-line" />
+                            <circle cx="15" cy="0" r="4" class="circuit-node" />
+                            <path d="M0 10 L-10 -10" class="circuit-line" />
+                            <circle cx="-10" cy="-10" r="3" class="circuit-node" />
+                            <circle cx="25" cy="-5" r="3.5" class="circuit-node" />
                         </g>
                     </svg>
                     <p>Transformando tecnologia em resultados</p>
@@ -362,10 +368,10 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Serviços</h4>
-                        <a href="#services">Cloud Computing</a>
                         <a href="#services">Desenvolvimento</a>
-                        <a href="#services">Gestão de Dados</a>
-                        <a href="#services">Segurança</a>
+                        <a href="#services">Dados & Analytics</a>
+                        <a href="#services">Cloud</a>
+                        <a href="#services">Estratégia</a>
                     </div>
                     <div class="footer-column">
                         <h4>Empresa</h4>

@@ -116,33 +116,41 @@ body {
 .nav-brand .logo {
     height: 55px;
     width: auto;
+    min-width: 180px;
     filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+    transition: all 0.3s ease;
+}
+
+.nav-brand .logo:hover {
+    filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.5));
+    transform: scale(1.03);
 }
 
 .logo-text {
     font-family: var(--font-family);
-    font-size: 26px;
-    font-weight: 900;
+    font-size: 32px;
+    font-weight: 800;
     fill: var(--text-white);
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
 }
 
 .logo-subtext {
     font-family: var(--font-family);
-    font-size: 8px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 700;
     fill: var(--text-light);
-    letter-spacing: 3px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
 }
 
 .circuit-elements .circuit-node {
     fill: var(--neon-blue);
-    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.8));
+    filter: drop-shadow(0 0 5px var(--neon-blue));
 }
 
 .circuit-elements .circuit-line {
     stroke: var(--neon-blue);
-    stroke-width: 2;
+    stroke-width: 2.5;
     fill: none;
     filter: drop-shadow(0 0 3px rgba(0, 212, 255, 0.6));
 }
@@ -373,13 +381,24 @@ body {
 }
 
 .stat-number {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: var(--font-size-3xl);
     font-weight: 800;
     background: var(--gradient-cyber);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.stat-number i {
+    font-size: 2rem;
+    background: var(--gradient-cyber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
 }
 
 .stat-label {
@@ -1035,6 +1054,43 @@ body {
     font-weight: 500;
 }
 
+/* Contact method clickable styles */
+a.contact-method--clickable {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.contact-method--clickable:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.25);
+    background: rgba(15, 23, 42, 0.6);
+}
+
+/* WhatsApp Hover Style */
+a.contact-method--clickable:hover .fa-whatsapp {
+    background: #25D366;
+    color: white;
+    border-color: #25D366;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+}
+
+/* Email Hover Style */
+a.contact-method--clickable:hover .fa-envelope {
+    background: var(--neon-blue);
+    color: white;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+a.contact-method--clickable:hover span {
+    color: var(--text-white);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+a:active.contact-method--clickable {
+    transform: scale(0.98);
+}
+
 .contact-form-container {
     background: var(--bg-glass);
     padding: var(--spacing-2xl);
@@ -1087,6 +1143,25 @@ body {
     background: var(--bg-glass);
     color: var(--text-white);
     backdrop-filter: var(--glass-backdrop);
+    appearance: none;
+    /* Remove seta padrão para colocar customizada */
+}
+
+/* Custom seta para o select */
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.5rem center;
+    background-size: 1.25rem;
+    padding-right: 3.5rem;
+}
+
+/* Estilo para as opções (dropdown list) */
+.form-group option {
+    background-color: #0F172A;
+    /* Cor escura sólida para garantir legibilidade */
+    color: var(--text-white);
+    padding: 10px;
 }
 
 .form-group input::placeholder,
@@ -1135,6 +1210,7 @@ body {
 
 .footer-brand .logo {
     height: 55px;
+    min-width: 180px;
     margin-bottom: var(--spacing-md);
     filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
 }
@@ -1281,6 +1357,20 @@ body {
 
     .hero-stats {
         justify-content: center;
+        gap: var(--spacing-md);
+    }
+
+    .stat {
+        padding: var(--spacing-md);
+        min-width: 90px;
+    }
+
+    .stat-number i {
+        font-size: 1.6rem;
+    }
+
+    .stat-label {
+        font-size: var(--font-size-xs);
     }
 
     .services-grid {
@@ -1300,6 +1390,17 @@ body {
         width: 300px;
         height: 300px;
     }
+
+    .contact-method span {
+        font-size: var(--font-size-sm);
+        word-break: break-all;
+    }
+
+    .contact-method i {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1309,6 +1410,20 @@ body {
 
     .hero-title {
         font-size: var(--font-size-3xl);
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .stat {
+        padding: var(--spacing-sm) var(--spacing-md);
+        flex: 1 1 80px;
+    }
+
+    .stat-number i {
+        font-size: 1.4rem;
     }
 
     .hero-buttons {
@@ -1328,6 +1443,11 @@ body {
     .differential-item {
         flex-direction: column;
         text-align: center;
+    }
+
+    .nav-brand .logo {
+        height: 45px;
+        min-width: 150px;
     }
 }
 
@@ -1397,7 +1517,9 @@ textarea:focus {
         min-height: auto;
         padding: var(--spacing-xl) 0;
     }
-}.sr-only {
+}
+
+.sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
