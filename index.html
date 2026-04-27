@@ -7,6 +7,31 @@
     <title>APOC Tecnologia | Consultoria em TI e Inovação Digital</title>
     <meta name="description"
         content="Consultoria especializada em Tecnologia da Informação para impulsionar sua empresa rumo à transformação digital">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apoctecnologia.com.br/">
+    <meta property="og:title" content="APOC Tecnologia | Consultoria em TI e Inovação Digital">
+    <meta property="og:description" content="Consultoria especializada em Tecnologia da Informação para impulsionar sua empresa rumo à transformação digital">
+    <meta property="og:image" content="https://apoctecnologia.com.br/public/images/logo-apoc.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://apoctecnologia.com.br/">
+    <meta name="twitter:title" content="APOC Tecnologia | Consultoria em TI e Inovação Digital">
+    <meta name="twitter:description" content="Consultoria especializada em Tecnologia da Informação para impulsionar sua empresa rumo à transformação digital">
+    <meta name="twitter:image" content="https://apoctecnologia.com.br/public/images/logo-apoc.png">
+    
+    <!-- Additional SEO -->
+    <meta name="keywords" content="consultoria TI, tecnologia, desenvolvimento software, cloud, inteligência artificial, segurança da informação, Paragominas, Pará">
+    <meta name="author" content="APOC Tecnologia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://apoctecnologia.com.br/">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="msapplication-TileColor" content="#0f172a">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -15,26 +40,26 @@
 </head>
 
 <body>
-    <header class="app-header">
+    <header class="app-header" role="banner">
         <!-- Navigation -->
-        <nav class="navbar">
+        <nav class="navbar" role="navigation" aria-label="Navegação principal">
             <div class="container">
                 <div class="nav-brand">
-                    <a href="#home" class="logo-link">
+                    <a href="#home" class="logo-link" aria-label="APOC Tecnologia - Ir para o início">
                         <img src="public/images/logo-apoc.png" alt="APOC Tecnologia" class="logo-img">
                     </a>
                 </div>
-                <div class="nav-menu" id="nav-menu">
-                    <a href="#home" class="nav-link">Início</a>
-                    <a href="#services" class="nav-link">Serviços</a>
-                    <a href="#about" class="nav-link">Sobre</a>
-                    <a href="#contact" class="nav-link">Contato</a>
+                <div class="nav-menu" id="nav-menu" role="menubar">
+                    <a href="#home" class="nav-link" role="menuitem">Início</a>
+                    <a href="#services" class="nav-link" role="menuitem">Serviços</a>
+                    <a href="#about" class="nav-link" role="menuitem">Sobre</a>
+                    <a href="#contact" class="nav-link" role="menuitem">Contato</a>
                 </div>
-                <div class="nav-toggle" id="nav-toggle">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
@@ -277,10 +302,11 @@
                                 <i class="fab fa-whatsapp"></i>
                                 <span>+55 (91) 98909-4937</span>
                             </a>
-                            <div class="contact-method">
+                            <a href="https://maps.google.com/?q=Paragominas,PA,Brasil" target="_blank" rel="noopener noreferrer"
+                                class="contact-method contact-method--clickable">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span>Paragominas, PA - Brasil</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="contact-form-container">
@@ -359,17 +385,33 @@
                     </div>
                     <div class="footer-column">
                         <h4>Contato</h4>
-                        <p>contato@apoctecnologia.com.br</p>
-                        <p>+55 (91) 98909-4937</p>
-                        <p>Paragominas, PA</p>
+                        <a href="mailto:contato@apoctecnologia.com.br" class="footer-contact-link">
+                            <i class="fas fa-envelope"></i> contato@apoctecnologia.com.br
+                        </a>
+                        <a href="https://wa.me/5591989094937" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                            <i class="fab fa-whatsapp"></i> +55 (91) 98909-4937
+                        </a>
+                        <a href="https://maps.google.com/?q=Paragominas,PA,Brasil" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                            <i class="fas fa-map-marker-alt"></i> Paragominas, PA
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 APOC Tecnologia. Todos os direitos reservados.</p>
+                <p>&copy; 2025 APOC Tecnologia. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5591989094937?text=Olá! Gostaria de saber mais sobre os serviços da APOC Tecnologia." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-float" 
+       aria-label="Contato via WhatsApp"
+       title="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer

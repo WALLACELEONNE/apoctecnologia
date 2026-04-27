@@ -22,11 +22,16 @@ function initNavigation() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle mobile menu
+    // Toggle mobile menu with accessibility
     if (navToggle) {
         navToggle.addEventListener('click', () => {
+            const isExpanded = navMenu.classList.contains('active');
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
+            
+            // Update ARIA attributes for accessibility
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navToggle.setAttribute('aria-label', isExpanded ? 'Abrir menu de navegação' : 'Fechar menu de navegação');
         });
     }
 
@@ -35,6 +40,8 @@ function initNavigation() {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Abrir menu de navegação');
         });
     });
 
@@ -43,6 +50,8 @@ function initNavigation() {
         if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Abrir menu de navegação');
         }
     });
 }
