@@ -1515,8 +1515,8 @@ a:active.contact-method--clickable {
 /* WhatsApp Floating Button */
 .whatsapp-float {
     position: fixed;
-    bottom: 100px;
-    right: 30px;
+    bottom: 24px;
+    right: 90px;
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
@@ -1584,8 +1584,8 @@ a:active.contact-method--clickable {
 /* Responsive WhatsApp Button */
 @media (max-width: 768px) {
     .whatsapp-float {
-        bottom: 90px;
-        right: 20px;
+        bottom: 20px;
+        right: 80px;
         width: 55px;
         height: 55px;
         font-size: 28px;
