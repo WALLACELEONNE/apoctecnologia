@@ -118,46 +118,46 @@ body {
     padding: 1.25rem var(--spacing-lg);
 }
 
-.nav-brand .logo {
-    height: 55px;
-    width: auto;
-    min-width: 180px;
-    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+/* Logo Image Styles */
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.nav-brand .logo:hover {
-    filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.5));
+.logo-link:hover {
     transform: scale(1.03);
 }
 
-.logo-text {
-    font-family: var(--font-family);
-    font-size: 32px;
-    font-weight: 800;
-    fill: var(--text-white);
-    letter-spacing: 1px;
+.logo-img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
 }
 
-.logo-subtext {
-    font-family: var(--font-family);
-    font-size: 10px;
-    font-weight: 700;
-    fill: var(--text-light);
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
+.logo-link:hover .logo-img {
+    filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.4));
 }
 
-.circuit-elements .circuit-node {
-    fill: var(--neon-blue);
-    filter: drop-shadow(0 0 5px var(--neon-blue));
+/* Footer Logo */
+.footer-logo-img {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: all 0.3s ease;
 }
 
-.circuit-elements .circuit-line {
-    stroke: var(--neon-blue);
-    stroke-width: 2.5;
-    fill: none;
-    filter: drop-shadow(0 0 3px rgba(0, 212, 255, 0.6));
+.footer-logo-img:hover {
+    opacity: 1;
+    transform: scale(1.03);
 }
 
 .nav-menu {
@@ -211,6 +211,14 @@ body {
     background: var(--bg-glass);
     backdrop-filter: var(--glass-backdrop);
     border: 1px solid var(--glass-border);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--neon-blue);
+    outline-offset: 2px;
 }
 
 .nav-toggle span {
@@ -1217,29 +1225,26 @@ a:active.contact-method--clickable {
     margin-bottom: var(--spacing-xl);
 }
 
-.footer-brand .logo {
-    height: 55px;
-    min-width: 180px;
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand .logo-link {
     margin-bottom: var(--spacing-md);
-    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
 }
 
-.footer-brand .logo-text {
-    fill: var(--text-white);
+.footer-brand .footer-logo-img {
+    height: 55px;
+    width: auto;
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
+    transition: all 0.3s ease;
 }
 
-.footer-brand .logo-subtext {
-    fill: var(--text-light);
-}
-
-.footer-brand .circuit-node {
-    fill: var(--neon-blue);
-    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
-}
-
-.footer-brand .circuit-line {
-    stroke: var(--neon-blue);
-    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.6));
+.footer-brand .footer-logo-img:hover {
+    filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
+    transform: scale(1.03);
 }
 
 .footer-brand p {
@@ -1472,9 +1477,8 @@ a:active.contact-method--clickable {
         text-align: center;
     }
 
-    .nav-brand .logo {
-        height: 38px;
-        min-width: 130px;
+    .nav-brand .logo-img {
+        height: 42px;
     }
 
     .footer-brand {
@@ -1483,6 +1487,10 @@ a:active.contact-method--clickable {
         flex-direction: column;
         align-items: center;
         margin-bottom: var(--spacing-lg);
+    }
+
+    .footer-brand .footer-logo-img {
+        height: 45px;
     }
 
     .footer-links {
@@ -1502,12 +1510,85 @@ a:active.contact-method--clickable {
         padding: 0;
     }
 
-    .logo-text {
-        font-size: 24px;
-    }
+}
 
-    .logo-subtext {
-        font-size: 8px;
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 90px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9998;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
+/* Footer Contact Links */
+.footer-contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    transition: all 0.3s ease;
+}
+
+.footer-contact-link:hover {
+    color: var(--neon-blue);
+    transform: translateX(5px);
+}
+
+.footer-contact-link i {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-contact-link:hover i {
+    color: var(--neon-blue);
+}
+
+/* Responsive WhatsApp Button */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 80px;
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
     }
 }
 
