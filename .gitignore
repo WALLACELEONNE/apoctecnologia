@@ -56,3 +56,8 @@ temp/
 
 # Vercel
 .vercel
+
+# Playwright
+playwright-report/
+test-results/
+playwright/.cache/

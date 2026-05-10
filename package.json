@@ -5,7 +5,10 @@
   "main": "index.html",
   "scripts": {
     "start": "serve .",
-    "dev": "serve ."
+    "dev": "serve .",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
   },
   "keywords": [
     "landing-page",
@@ -22,6 +25,7 @@
   },
   "homepage": "https://apoctecnologia.vercel.app",
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "serve": "^14.0.0"
   }
 }
