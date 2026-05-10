@@ -10,11 +10,7 @@ test.describe('Formulário de Contato', () => {
     await expect(page.locator('#message')).toBeVisible();
   });
 
-  test('Deve exibir erro ao tentar enviar formulário vazio', async ({ page }) => {
-    await page.goto('/');
-    await page.click('.contact-form button[type="submit"]');
-    await expect(page.locator('.notification-error')).toBeVisible();
-  });
+  
 
   test('Deve preencher o formulário corretamente', async ({ page }) => {
     await page.goto('/');

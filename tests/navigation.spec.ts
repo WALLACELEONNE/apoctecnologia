@@ -4,7 +4,7 @@ test.describe('Navegação do Site', () => {
   test('Deve carregar a página inicial e exibir o logo', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/APOC Tecnologia/);
-    await expect(page.locator('.navbar .logo')).toBeVisible();
+    await expect(page.locator('.nav-brand .logo-img')).toBeVisible();
   });
 
   test('Deve navegar para todas as seções pelo menu', async ({ page }) => {

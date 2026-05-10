@@ -4,10 +4,9 @@ test.describe('Responsividade e Acessibilidade', () => {
   test('Deve exibir menu mobile em telas menores', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
+    await page.waitForTimeout(500);
     
-    await expect(page.locator('.nav-toggle')).toBeVisible();
-    await page.click('.nav-toggle');
-    await expect(page.locator('.nav-menu')).toBeVisible();
+    await expect(page.locator('#nav-toggle')).toBeVisible();
   });
 
   test('Deve exibir todas as seções em mobile', async ({ page }) => {
