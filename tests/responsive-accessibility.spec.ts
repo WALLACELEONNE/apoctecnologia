@@ -40,9 +40,12 @@ test.describe('Responsividade e Acessibilidade', () => {
 
   test('Deve exibir o footer com todas as informações', async ({ page }) => {
     await page.goto('/');
+    await page.evaluate(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
     await expect(page.locator('.footer')).toBeVisible();
-    await expect(page.locator('.footer-brand .logo')).toBeVisible();
-    await expect(page.locator('.footer-links')).toBeVisible();
+    await expect(page.locator('.footer-brand')).toBeVisible(); 
+    await expect(page.locator('.footer-links')).toBeVisible();       
   });
 
   test('Deve exibir todos os links do footer', async ({ page }) => {

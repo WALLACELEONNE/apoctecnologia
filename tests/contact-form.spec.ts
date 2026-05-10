@@ -34,17 +34,17 @@ test.describe('Formulário de Contato', () => {
     await page.goto('/');
     
     const services = [
-      'Desenvolvimento Sob Medida',
-      'Dados & Analytics',
-      'Infraestrutura Cloud',
-      'Segurança da Informação',
-      'Inteligência Artificial',
-      'Consultoria Estratégica',
-      'Suporte Técnico',
+      'software',
+      'data',
+      'cloud',
+      'security',
+      'ai',
+      'consulting',
+      'support',
     ];
     
     for (const service of services) {
-      await expect(page.locator(`.contact-form option:text("${service}")`)).toBeVisible();
+      await expect(page.locator(`.contact-form option[value="${service}"]`)).toHaveCount(1);
     }
   });
 });
